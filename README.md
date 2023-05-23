@@ -34,18 +34,32 @@ This are tools that help you on your daily basis tasks when you have multiple cl
 
 First let's create a namespace for you to work, instead of use the default.
 
-`kubectl create namespace <some_name_without_spaces>`
+```
+kubectl create namespace <some_name_without_spaces>
+```
 
-If you have installed kubens, `kubens <some_name_without_spaces>` otherwise don't forget to prepend or append your `kubectl` commands with `-n <some_name_without_spaces>`
+If you have installed kubens 
+
+```bash
+kubens <some_name_without_spaces>
+```
+
+otherwise don't forget to prepend or append your `kubectl` commands with `-n <some_name_without_spaces>`
 
 Let's play
 
-`git clone https://github.com/ydataai/kubernetes-workshop.git`
+```
+git clone https://github.com/ydataai/kubernetes-workshop.git
+```
 
 ### Phase 1
 
-`git checkout phase-1`
+```bash
+git checkout phase-1
+```
 
 ### Phase 2
 
-`git checkout phase-2`
+```
+git checkout phase-2
+```
