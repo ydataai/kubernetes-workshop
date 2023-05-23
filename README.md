@@ -58,8 +58,12 @@ git clone https://github.com/ydataai/kubernetes-workshop.git
 git checkout phase-1
 ```
 
+Check the readme https://github.com/ydataai/kubernetes-workshop/tree/phase-1 for the next instructions
+
 ### Phase 2
 
 ```
 git checkout phase-2
 ```
+
+Check the readme https://github.com/ydataai/kubernetes-workshop/tree/phase-2 for the next instructions
