@@ -24,22 +24,22 @@ Add another container with the `redis` image using the image above or other from
 
 Note the labels in the `template` and `selector` sections
 
-#### Apply it to the cluster
+#### Into the cluster
 
 ```bash
-kubectl apply -f deployment.yml -n <some_name_without_spaces>
+kubectl apply -f deployment.yml
 ```
 
 Check the deployment in the cluster
 
 ```bash
-kubectl get deployment
+kubectl get deployment -n <your_namespace_previously_created>
 ```
 
 Check the pods (remember, which deployment has one or more pods, depending on the replicas property)
 
 ```bash
-kubectl get pods 
+kubectl get pods -n <your_namespace_previously_created>
 ```
 
 NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
@@ -52,10 +52,24 @@ Add the necessary ports to expose the services in the deployment.
 
 Note the selector, this needs to match the same labels in the deployment
 
-#### Apply it to the cluster
+#### Into the cluster
+
+Apply the file to create the resources in the cluster
 
 ```bash
-kubectl apply -f service.yml -n <some_name_without_spaces>
+kubectl apply -f service.yml
 ```
 
-You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
+Check the service created
+
+```bash
+kubectl get service -n <your_namespace_previously_created>
+```
+
+Let's access the service in the cluster. In order to achieve that, we have to a do a port-forward, which is like open a tunnel from our computer to the cluster.
+
+```bash
+kubectl port-forward svc/webapp -n <your_namespace_previously_created> 8080:8080
+```
+
+NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
