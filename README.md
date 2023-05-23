@@ -1,4 +1,4 @@
-# Kubernetesw Workshop
+# Kubernetes Workshop
 
 [Presentation](https://docs.google.com/presentation/d/1BuB8xiFdeyI5P2Ah3rxulteG23i89daxX5UTyOgWq8Y/edit?usp=sharing)
 
@@ -6,6 +6,8 @@
 
 - [Kubectl](#-kubectl) -**Required**
 - [Minikube](#-minikube)
+- [kubectx and kubens](#-kubectx-and-kubens)
+
 
 ### Kubectl
 
@@ -17,4 +19,12 @@ It is recomended that you install the same version of the kubernetes that you ar
 
 ### Minikube
 
-- https://minikube.sigs.k8s.io/docs/start/
+https://minikube.sigs.k8s.io/docs/start/
+
+Select the operating system, arquitecture and package manger that you want to use.
+
+## Kubectx and kubens
+
+https://github.com/ahmetb/kubectx
+
+This are tools that help you on your daily basis tasks when you have multiple clusters to manage.
