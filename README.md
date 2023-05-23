@@ -41,7 +41,7 @@ Go to your browser and give it a test http://webapp.aettua
 
 ### The persistentvolume.yml file
 
-If you are using minikube, check this https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/
+If you are using minikube, check this https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/  
 This can also be useful for the future https://minikube.sigs.k8s.io/docs/tutorials/volume_snapshots_and_csi/
 
 - Documentation: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
