@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        # complete with the image and tag fields
+        env:
+        # complete
+      - name: redis
+        # complete with the image and tag fields
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: yes

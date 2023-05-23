@@ -2,64 +2,60 @@
 
 [Presentation](https://docs.google.com/presentation/d/1BuB8xiFdeyI5P2Ah3rxulteG23i89daxX5UTyOgWq8Y/edit?usp=sharing)
 
-## 🛠️ Tools
+## 🚧 
 
-- [Kubectl](#-kubectl) -**Required**
-- [Minikube](#-minikube)
-- [kubectx and kubens](#-kubectx-and-kubens)
+Docker images to use
+- Webapp
+    - ydata/docker-workshop:1.0
+    - ghcr.io/ydataai/docker-workshop:1.0
+- Redis
+    - bitnami/redis:7.0.11
+    - or another from dockerhub
 
+### The deployment.yml file
 
-### Kubectl
+#### Complete the file
 
-- Linux: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-- macOS: `brew cask install kubectl`
-- Windows: https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+Add a container with `webapp` using one of the docker images mentioned above
 
-It is recomended that you install the same version of the kubernetes that you are using.
+You have to set the image, the tag and expose the port 8000
 
-### Minikube
+Add another container with the `redis` image using the image above or other from the dockerhub (make sure you read how to use it)
 
-https://minikube.sigs.k8s.io/docs/start/
+Note the labels in the `template` and `selector` sections
 
-Select the operating system, arquitecture and package manger that you want to use.
-
-### Kubectx and kubens
-
-https://github.com/ahmetb/kubectx
-
-This are tools that help you on your daily basis tasks when you have multiple clusters to manage.
-
-
-## Hands-on
-
-First let's create a namespace for you to work, instead of use the default.
-
-```
-kubectl create namespace <some_name_without_spaces>
-```
-
-If you have installed kubens 
+#### Apply it to the cluster
 
 ```bash
-kubens <some_name_without_spaces>
+kubectl apply -f deployment.yml -n <some_name_without_spaces>
 ```
 
-otherwise don't forget to prepend or append your `kubectl` commands with `-n <some_name_without_spaces>`
-
-Let's play
-
-```
-git clone https://github.com/ydataai/kubernetes-workshop.git
-```
-
-### Phase 1
+Check the deployment in the cluster
 
 ```bash
-git checkout phase-1
+kubectl get deployment
 ```
 
-### Phase 2
+Check the pods (remember, which deployment has one or more pods, depending on the replicas property)
 
+```bash
+kubectl get pods 
 ```
-git checkout phase-2
+
+NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
+
+### The service.yml file
+
+#### Complete the file
+
+Add the necessary ports to expose the services in the deployment.
+
+Note the selector, this needs to match the same labels in the deployment
+
+#### Apply it to the cluster
+
+```bash
+kubectl apply -f service.yml -n <some_name_without_spaces>
 ```
+
+You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
