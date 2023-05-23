@@ -23,8 +23,29 @@ https://minikube.sigs.k8s.io/docs/start/
 
 Select the operating system, arquitecture and package manger that you want to use.
 
-## Kubectx and kubens
+### Kubectx and kubens
 
 https://github.com/ahmetb/kubectx
 
 This are tools that help you on your daily basis tasks when you have multiple clusters to manage.
+
+
+## Hands-on
+
+First let's create a namespace for you to work, instead of use the default.
+
+`kubectl create namespace <some_name_without_spaces>`
+
+If you have installed kubens, `kubens <some_name_without_spaces>` otherwise don't forget to prepend or append your `kubectl` commands with `-n <some_name_without_spaces>`
+
+Let's play
+
+`git clone https://github.com/ydataai/kubernetes-workshop.git`
+
+### Phase 1
+
+`git checkout phase-1`
+
+### Phase 2
+
+`git checkout phase-2`
