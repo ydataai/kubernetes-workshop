@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
-  namespace: <your_namespace_previously_created>
+  # namespace: <your_namespace_previously_created>
 spec:
   replicas: 1
   selector:
@@ -15,16 +15,66 @@ spec:
     spec:
       containers:
       - name: webapp
-        # complete with the image and tag fields
+        image: ydata/docker-workshop:1.0
         env:
-        # complete with the PORT to expose the webapp
+        - name: FLASK_PORT
+          value: "8080"
+        - name: REDIS_HOST
+          value: redit
+        - name: REDIS_PORT
+          value: "6379"
         ports:
-        # complete to expose the ports in the container
+        - containerPort: 80
+          name: http
+        resources:
+          limits:
+            cpu: 1
+            memory: 200Mi
+          requests:
+            cpu: 500m
+            memory: "100Mi"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  # namespace: <your_namespace_previously_created>
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
       - name: redis
-        # complete with the image and tag fields
+        image: bitnami/redis:7.0.11
         env:
         - name: ALLOW_EMPTY_PASSWORD
-          value: yes
-        # complete with the PORT to expose the redis
+          value: "yes"
+        - name: REDIS_HOST
+          value: redit
+        - name: REDIS_PORT
+          value: "6379"
         ports:
-        # complete to expose the ports in the container
+        - containerPort: 6379
+          name: redis
+        resources:
+          limits:
+            cpu: 1
+            memory: 200Mi
+          requests:
+            cpu: 500m
+            memory: 100Mi
+        # If you are running on minikube, the VM will run as root so to simplify uncomment the following lines
+        # this is a bad practice btw, never run as root, but in this case is a quick-win.
+        # securityContext: 
+        #   runAsUser: 0
+        # volumeMounts:
+        # complete with the mount paths
+      # volumes:
+      # bound to the persisten volume claim
