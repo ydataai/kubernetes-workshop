@@ -4,78 +4,81 @@
 
 ## 🚧 
 
-Docker images to use
-- Webapp
-    - ydata/docker-workshop:1.0
-    - ghcr.io/ydataai/docker-workshop:1.0
-- Redis
-    - bitnami/redis:7.0.11
-    - or another from dockerhub
+Use the deployment and service YAML files as starting point
 
-### The deployment.yml file
+```bash
+kubectl apply -f deployment.yml service.yml -n <your_namespace_previously_created>
+```
 
-- Documentation: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
-- Examples: https://k8s-examples.container-solutions.com/examples/Deployment/Deployment.html
+If you running on minikube, you need to follow this to enable ingress https://minikube.sigs.k8s.io/docs/handbook/addons/ingress-dns/
+
+### The ingress.yml file
+
+- Documentation: https://kubernetes.io/docs/concepts/services-networking/ingress/
+- Examples: https://k8s-examples.container-solutions.com/examples/Ingress/Ingress.html
 
 #### Complete the file
 
-Add a container with `webapp` using one of the docker images mentioned above
-
-You have to set the image, the tag and expose the port 8000
-
-Add another container with the `redis` image using the image above or other from the dockerhub (make sure you read how to use it)
-
-Note the labels in the `template` and `selector` sections
+Basically you have to fill the ingress host for the http, path and backend service (check documentation and examples, there are a lot of documentation)
 
 #### Into the cluster
 
 ```bash
-kubectl apply -f deployment.yml
+kubectl apply -f ingress.yml
 ```
 
 Check the deployment in the cluster
 
 ```bash
-kubectl get deployment -n <your_namespace_previously_created>
-```
-
-Check the pods (remember, which deployment has one or more pods, depending on the replicas property)
-
-```bash
-kubectl get pods -n <your_namespace_previously_created>
+kubectl get ingress -n <your_namespace_previously_created>
 ```
 
 NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
 
-### The service.yml file
+#### Let's test it
 
-- Documentation: https://kubernetes.io/docs/concepts/services-networking/service/
-- Examples: https://k8s-examples.container-solutions.com/examples/Service/Service.html
+Go to your browser and give it a test http://webapp.aettua
+
+### The persistentvolume.yml file
+
+If you are using minikube, check this https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/
+This can also be useful for the future https://minikube.sigs.k8s.io/docs/tutorials/volume_snapshots_and_csi/
+
+- Documentation: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+- Examples: https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/
 
 #### Complete the file
 
-Add the necessary ports to expose the services in the deployment.
+Configure the persistent volume claim to use the persistent volume
 
-Note the selector, this needs to match the same labels in the deployment
+Configure the `deployment.yml` file to attach to the persisten volume claim
 
 #### Into the cluster
 
 Apply the file to create the resources in the cluster
 
 ```bash
-kubectl apply -f service.yml
+kubectl apply -f persistentvolume.yml deployment.yml
 ```
 
-Check the service created
+#### Let's test it
+
+Go to your browser and give it a test http://webapp.aettua
+
+Now edit the redis deployment and change the replicas to 0.
 
 ```bash
-kubectl get service -n <your_namespace_previously_created>
+kubectl edit deployment redis
 ```
 
-Let's access the service in the cluster. In order to achieve that, we have to a do a port-forward, which is like open a tunnel from our computer to the cluster.
+Check if the pod had already gone. If you hit http://webapp.aettua you should have an error
 
 ```bash
-kubectl port-forward svc/webapp -n <your_namespace_previously_created> 8080:<port you used in your service>
+kubectl get pod
 ```
+
+Now edit again the deployment and set again the replicas to 1.
+
+When you go to http://webapp.aettua you should see the same number of hits +1.
 
 NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
