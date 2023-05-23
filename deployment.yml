@@ -17,9 +17,14 @@ spec:
       - name: webapp
         # complete with the image and tag fields
         env:
-        # complete
+        # complete with the PORT to expose the webapp
+        ports:
+        # complete to expose the ports in the container
       - name: redis
         # complete with the image and tag fields
         env:
         - name: ALLOW_EMPTY_PASSWORD
           value: yes
+        # complete with the PORT to expose the redis
+        ports:
+        # complete to expose the ports in the container

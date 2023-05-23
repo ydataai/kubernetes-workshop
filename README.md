@@ -14,6 +14,9 @@ Docker images to use
 
 ### The deployment.yml file
 
+- Documentation: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+- Examples: https://k8s-examples.container-solutions.com/examples/Deployment/Deployment.html
+
 #### Complete the file
 
 Add a container with `webapp` using one of the docker images mentioned above
@@ -46,6 +49,9 @@ NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens
 
 ### The service.yml file
 
+- Documentation: https://kubernetes.io/docs/concepts/services-networking/service/
+- Examples: https://k8s-examples.container-solutions.com/examples/Service/Service.html
+
 #### Complete the file
 
 Add the necessary ports to expose the services in the deployment.
@@ -69,7 +75,7 @@ kubectl get service -n <your_namespace_previously_created>
 Let's access the service in the cluster. In order to achieve that, we have to a do a port-forward, which is like open a tunnel from our computer to the cluster.
 
 ```bash
-kubectl port-forward svc/webapp -n <your_namespace_previously_created> 8080:8080
+kubectl port-forward svc/webapp -n <your_namespace_previously_created> 8080:<port you used in your service>
 ```
 
 NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace

@@ -9,5 +9,7 @@ spec:
   ports:
   - name: http
     # complete
+    port: # port to expose
+    targetPort: # port in the container
   - name: redis
     # complete
