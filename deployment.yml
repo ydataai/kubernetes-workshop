@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: ghcr.io/ydataai/docker-workshop:1.1
+        env:
+        - name: FLASK_PORT
+          value: "8080"
+        - name: REDIS_HOST
+          value: redis
+        - name: REDIS_PORT
+          value: "6379"
+        ports:
+        - containerPort: 8080
+          name: http
+        resources:
+          limits:
+            cpu: 1
+            memory: 200Mi
+          requests:
+            cpu: 500m
+            memory: "100Mi"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: ghcr.io/ydataai/bitnami-redis:7.0.11
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: REDIS_HOST
+          value: redis
+        - name: REDIS_PORT
+          value: "6379"
+        ports:
+        - containerPort: 6379
+          name: redis
+        resources:
+          limits:
+            cpu: 1
+            memory: 200Mi
+          requests:
+            cpu: 500m
+            memory: 100Mi
+        volumeMounts:
+        - mountPath: /bitnami/redis/data
+          name: redis
+      volumes:
+      - name: redis
+        persistentVolumeClaim:
+          claimName: redis
+    
