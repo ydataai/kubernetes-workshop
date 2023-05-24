@@ -15,16 +15,16 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: ydata/docker-workshop:1.0
+        image: ydata/docker-workshop:1.1
         env:
         - name: FLASK_PORT
           value: "8080"
         - name: REDIS_HOST
-          value: redit
+          value: redis
         - name: REDIS_PORT
           value: "6379"
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: http
         resources:
           limits:
@@ -57,7 +57,7 @@ spec:
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"
         - name: REDIS_HOST
-          value: redit
+          value: redis
         - name: REDIS_PORT
           value: "6379"
         ports:
