@@ -8,6 +8,11 @@ Docker images to use
 - Webapp
     - ghcr.io/ydataai/docker-workshop:1.1 **recommended**
     - ydata/docker-workshop:1.1
+    
+  Env Variables:
+    - FLASK_PORT
+    - REDIS_HOST
+    - REDIS_PORT
 - Redis
     - ghcr.io/ydataai/bitnami-redis:7.0.11 **recommended**
     - bitnami/redis:7.0.11
