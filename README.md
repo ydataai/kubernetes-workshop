@@ -2,6 +2,13 @@
 
 [Presentation](https://docs.google.com/presentation/d/1BuB8xiFdeyI5P2Ah3rxulteG23i89daxX5UTyOgWq8Y/edit?usp=sharing)
 
+## Documentation
+
+- [Kubernetes Official](https://kubernetes.io/docs/concepts/)
+- [Container Solutions Examples](https://k8s-examples.container-solutions.com/examples/)
+- [Kubectl Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [Getting Started Example](https://www.freecodecamp.org/news/the-kubernetes-handbook/)
+
 ## 🛠️ Tools
 
 - [Kubectl](#-kubectl) - **Required**
