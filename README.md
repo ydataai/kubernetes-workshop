@@ -7,6 +7,7 @@
 - [Kubectl](#-kubectl) - **Required**
 - [Minikube](#-minikube) - **Not required but suggested**
 - [kubectx and kubens](#-kubectx-and-kubens)
+- [gcloud] - **Alternative for those not using minikube**
 
 
 ### Kubectl
@@ -29,6 +30,15 @@ https://github.com/ahmetb/kubectx
 
 This are tools that help you on your daily basis tasks when you have multiple clusters to manage.
 
+### GCloud
+
+https://cloud.google.com/sdk/docs/install
+
+If you have MacOS and homebrew installed
+
+```bash
+brew install --cask gcloud
+```
 
 ## Drivers, Start your engines
 
