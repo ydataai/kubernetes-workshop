@@ -23,8 +23,6 @@ https://minikube.sigs.k8s.io/docs/start/
 
 Select the operating system, arquitecture and package manger that you want to use.
 
-To start minikube with required addons for this workshop, use the following command
-
 ### Kubectx and kubens
 
 https://github.com/ahmetb/kubectx
@@ -40,6 +38,16 @@ We will give two options, being the **minikube** the one recommended.
 You will have access to this (because it's running on your computer) after this workshop finishes.
 
 ### Minikube (Recommended)
+
+To start minikube with required addons for this workshop, use the following command
+
+#### MacOS
+
+```bash
+minikube start --addons=ingress,ingress-dns --driver=hyperkit
+```
+
+#### Others
 
 ```bash
 minikube start --addons=ingress,ingress-dns
