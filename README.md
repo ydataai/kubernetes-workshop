@@ -6,8 +6,8 @@
 
 Docker images to use
 - Webapp
-    - ydata/docker-workshop:1.0
-    - ghcr.io/ydataai/docker-workshop:1.0
+    - ydata/docker-workshop:1.1
+    - ghcr.io/ydataai/docker-workshop:1.1
 - Redis
     - bitnami/redis:7.0.11
     - or another from dockerhub
@@ -72,10 +72,12 @@ Check the service created
 kubectl get service -n <your_namespace_previously_created>
 ```
 
-Let's access the service in the cluster. In order to achieve that, we have to a do a port-forward, which is like open a tunnel from our computer to the cluster.
+### Let's test it
+
+Let's access the service in the cluster. To do that, we have to do a port-forward, which is like open a tunnel from our computer to the cluster.
 
 ```bash
 kubectl port-forward svc/webapp -n <your_namespace_previously_created> 8080:<port you used in your service>
 ```
 
-NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
+NOTE: You don't need the `-n <some_name_without_spaces>` if you have used `kubens` to set the default namespace
