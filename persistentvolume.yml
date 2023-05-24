@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: redis
-  # namespace: <your_namespace_previously_created>
+  namespace: <your_namespace_previously_created>
 spec:
   # complete
   # depending on the provider, this may be necessary

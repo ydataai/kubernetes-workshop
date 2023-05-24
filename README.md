@@ -53,7 +53,7 @@ kubectl get pod
 
 Now edit again the deployment and set again the replicas to 1.
 
-When you refresh the page http://webapp.aettua you should see the same number of hits that you had before.
+When you refresh the page http://webapp.aettua you should see that it reseted the counter.
 
 ### The persistentvolume.yml file
 
@@ -65,9 +65,9 @@ This can also be useful for the future https://minikube.sigs.k8s.io/docs/tutoria
 
 #### Complete the file
 
-Configure the persistent volume claim to use the persistent volume
+Configure the `PersistentVolumeClaim` to set the `accessModes` and `requests`
 
-Configure the `deployment.yml` file to attach to the persisten volume claim
+Configure the `deployment.yml` file to attach to the `PersistentVolumeClaim`
 
 #### Into the cluster
 
