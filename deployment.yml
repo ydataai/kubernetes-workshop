@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
-  # namespace: <your_namespace_previously_created>
+  namespace: <your_namespace_previously_created>
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: ydata/docker-workshop:1.1
+        image: ghcr.io/ydataai/docker-workshop:1.1
         env:
         - name: FLASK_PORT
           value: "8080"
@@ -39,7 +39,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  # namespace: <your_namespace_previously_created>
+  namespace: <your_namespace_previously_created>
 spec:
   replicas: 1
   selector:
@@ -70,10 +70,6 @@ spec:
           requests:
             cpu: 500m
             memory: 100Mi
-        # If you are running on minikube, the VM will run as root so to simplify uncomment the following lines
-        # this is a bad practice btw, never run as root, but in this case is a quick-win.
-        # securityContext: 
-        #   runAsUser: 0
         # volumeMounts:
         # complete with the mount paths
       # volumes:
