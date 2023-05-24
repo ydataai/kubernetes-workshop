@@ -16,6 +16,7 @@ Docker images to use
 - Redis
     - ghcr.io/ydataai/bitnami-redis:7.0.11 **recommended**
     - bitnami/redis:7.0.11
+    
   Env Variables:
     - REDIS_HOST
     - REDIS_PORT
