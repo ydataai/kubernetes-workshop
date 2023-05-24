@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "aeetua-workshop",
+  "private_key_id": "ff8ea19d6d30370bb30b8825809434c028ad50e8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDCUZIBkvANE2Si\n1TFsd6Mdc9893y8LqMpaTMaVgmEhfEKV9l/vtb3lH37/aj3nGYwa6Ywojh/b/+GW\ni2H7k13lt3XfMMKHaHHznNPurJf/dBV695xIiJH2fLHUgI29TGLJPao+gtxSdm2Z\nRiSuzSXmjxrrYr+uQwDSjfL6x1jCsQzokqc6Ej2u+B7glTY91tUK4c4xMbzgEZOg\nHJ7uLci8tlsi6RUI7rkotTds0zG68aIKTJ0iS05CnJOE8ibFpnlfXoQ1lY49MO8C\nZTBTQxPTUJj4I8+aj+c55mbswaD4py+VEwsqWqvzesC8YnQhrsvy7ers2OHH3dVy\nxSK3uqmNAgMBAAECggEAFAZ3pKg3Cy9BnT2ZliMu0Ppfz2QAg1PrOpVpQlTJMWa5\nWUlRHLEe4eMLjEMvdZvz4ige/2TvfUAS8u09Spb8GRAoL7k6Kt3aycS9MH5ikaWt\nuwTpJa5xVbSxrNkXV6KXbEQUbH8W49FRkndLO3pnxVQKbac5DWUuoK7r6JKCSq8/\nGc9tMQFULWA5siOQVz1QIUy1n+O6KXEvv6B7HbU2505BjudnBltm7J1QM0/E1Ygr\nvb9Q5BmmnwPf0om0YtHLVBFDp+xrSbyEbW1pYPtB+LR1aXT5wtMsDrkwEu+V+a3g\ntRaSXb0Lf5EeF3f1bfVX/YakZ5DaKkb4rf0dWW1+LwKBgQD1y6eWpr9tbNyvutRi\nYrpDkFMO02vulZfqZ5BWN+Aov99Kj3f619VJZxhKvbw0+z3nbzvwtz/K3hHDkngo\nAy0tWCsI8w/O/nIA5a7/XHJV0uPY5iuftiYvHaIG22ZhGPwaBfBf1GOwhLpi90MH\nBj0TaT50bY+hLRVjI0vCzvaASwKBgQDKYtAaHgpKBlEQ8PSHqbKHgw3k9rW9HSJ6\n4JAsM2tgLMIB+GoPpQBLlqvCLP2MRM2dFM/YbacIbk8htDewy7P5ROSwUAUXbH29\nsP5Up7kCbuMfDJdgloc9EGZokPsW45WXJJaVKaBWG7yE8OGolRTrkYOSfPBgchs8\n2Ql30anGhwKBgQDnjRps3ttZT4O6/KtVoCJOweis/9ke4shBZ5zezDaczNyi1fM2\nWRux0bBdwM5Lrx/LJcv24frzty5O6m3Na+ikXfn0rV4IJ0XouHeaU1HWrhw9WeBg\nzey82BKqmQeikzHzpgKjlGbxhKg90SfQtzzUS4ItloUHVnxeb4LQm742bwKBgDcK\n6M4xnVrEnQeegOLkpEl2uzCqaIMmiVoh+RQMaAegJKOkjDP1DD+CmvQUiGC91a4D\nGwQhzmvclGj2Oq86t5fzxL6vBLN6LjiJCqK7evXOcrbfFcyPI/jXnQKTa7at7uFM\nciffSlwg7wS4/qZ65VWsHbyZfka8weuqm4ia3THBAoGATec2TfXREymFSXnbHzV8\nNUgYTxMqbuPkhNIgBWurlFPpr/sydTrNAvLHIj5EMyY6omVzhjejaCGcsAAmu4ZR\nVQBC446b/6opllcHNEmpJ0xxL0e6il5N7iVezS0T2V0zAQqAnzetmOJoXs60tWzP\nzmsnv8JsVODGqyXOHy+7CaQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "kubernetes-workshop-user@aeetua-workshop.iam.gserviceaccount.com",
+  "client_id": "117513807092751364012",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kubernetes-workshop-user%40aeetua-workshop.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

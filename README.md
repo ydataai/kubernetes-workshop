@@ -44,7 +44,7 @@ https://cloud.google.com/sdk/docs/install
 If you have MacOS and homebrew installed
 
 ```bash
-brew install --cask gcloud
+brew install --cask google-cloud-sdk
 ```
 
 ## Drivers, Start your engines
@@ -72,6 +72,13 @@ minikube start --addons=ingress,ingress-dns
 
 ### Cluster on cloud provided by us
 
+If you don't want to use minikube, we have a cluster running on GCloud that you can use.
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=aettua-workshop-key.json
+export KUBECONFIG=kubeconfig.yaml
+gcloud container clusters get-credentials workshop-cluster --zone europe-southwest1
+````
 
 
 ## Hands-on
