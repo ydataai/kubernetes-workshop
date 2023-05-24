@@ -37,7 +37,23 @@ NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens
 
 #### Let's test it
 
-Go to your browser and give it a test http://webapp.aettua
+Go to your browser and give it a try http://webapp.aettua
+
+Now edit the redis deployment and change the replicas to 0.
+
+```bash
+kubectl edit deployment redis
+```
+
+Check if the pod had already gone. If you hit http://webapp.aettua you should have an error
+
+```bash
+kubectl get pod
+```
+
+Now edit again the deployment and set again the replicas to 1.
+
+When you refresh the page http://webapp.aettua you should see the same number of hits that you had before.
 
 ### The persistentvolume.yml file
 
@@ -63,7 +79,7 @@ kubectl apply -f persistentvolume.yml deployment.yml
 
 #### Let's test it
 
-Go to your browser and give it a test http://webapp.aettua
+Go to your browser and give it a try http://webapp.aettua
 
 Now edit the redis deployment and change the replicas to 0.
 
@@ -79,6 +95,6 @@ kubectl get pod
 
 Now edit again the deployment and set again the replicas to 1.
 
-When you go to http://webapp.aettua you should see the same number of hits +1.
+When you refresh the page http://webapp.aettua you should see the same number of hits that you had before.
 
 NOTE: You don't need the `-n <some_name_without_spaces>` if you have used kubens to set the default namespace
