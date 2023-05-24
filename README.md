@@ -4,8 +4,8 @@
 
 ## 🛠️ Tools
 
-- [Kubectl](#-kubectl) -**Required**
-- [Minikube](#-minikube)
+- [Kubectl](#-kubectl) - **Required**
+- [Minikube](#-minikube) - **Not required but suggested**
 - [kubectx and kubens](#-kubectx-and-kubens)
 
 
@@ -23,11 +23,30 @@ https://minikube.sigs.k8s.io/docs/start/
 
 Select the operating system, arquitecture and package manger that you want to use.
 
+To start minikube with required addons for this workshop, use the following command
+
 ### Kubectx and kubens
 
 https://github.com/ahmetb/kubectx
 
 This are tools that help you on your daily basis tasks when you have multiple clusters to manage.
+
+
+## Drivers, Start your engines
+
+For this workshop, you will need a cluster to try what you will create.
+
+We will give two options, being the **minikube** the one recommended.  
+You will have access to this (because it's running on your computer) after this workshop finishes.
+
+### Minikube (Recommended)
+
+```bash
+minikube start --addons=ingress,ingress-dns
+```
+
+### Cluster on cloud provided by us
+
 
 
 ## Hands-on
