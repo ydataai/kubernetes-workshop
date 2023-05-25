@@ -28,12 +28,11 @@ spec:
           name: http
         resources:
           limits:
-            cpu: 1
+            cpu: 250m
             memory: 200Mi
           requests:
-            cpu: 500m
-            memory: "100Mi"
-
+            cpu: 100m
+            memory: 100Mi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -65,10 +64,10 @@ spec:
           name: redis
         resources:
           limits:
-            cpu: 1
+            cpu: 500m
             memory: 200Mi
           requests:
-            cpu: 500m
+            cpu: 200m
             memory: 100Mi
         volumeMounts:
         - mountPath: /bitnami/redis/data
